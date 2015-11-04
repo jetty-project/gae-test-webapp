@@ -55,6 +55,11 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-annotations</artifactId>
+      <version>9.3.5.v20151012</version>
+    </dependency>
   </dependencies>
 
   <build>

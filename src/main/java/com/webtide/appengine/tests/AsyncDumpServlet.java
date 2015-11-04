@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = {"/async/dump/*"}, name="AsyncDump", asyncSupported=true, loadOnStartup=2)
+// @WebServlet(urlPatterns = {"/async/dump/*"}, name="AsyncDump", asyncSupported=true, loadOnStartup=2)
 public class AsyncDumpServlet extends HttpServlet
 {
     @Override
@@ -41,6 +41,10 @@ public class AsyncDumpServlet extends HttpServlet
     protected void doGet(final HttpServletRequest request, HttpServletResponse response ) throws ServletException,IOException
     {
         getServletContext().log("AsyncDumpServlet: "+request.getRequestURI());
+        
+        if (request.getParameter("ex")!=null)
+          throw new ServletException(request.getParameter("ex"));
+        
         final AsyncContext async = request.startAsync();
 
         async.start(new Runnable()

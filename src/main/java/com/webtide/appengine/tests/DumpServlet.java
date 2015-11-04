@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = {"/dump/*"}, name="Dump")
+// @WebServlet(urlPatterns = {"/dump/*"}, name="Dump")
 public class DumpServlet extends HttpServlet
 {
     @Override
@@ -43,6 +43,10 @@ public class DumpServlet extends HttpServlet
                                                         IOException
     {
         getServletContext().log("DumpServlet: "+request.getRequestURI());
+        
+        if (request.getParameter("ex")!=null)
+          throw new ServletException(request.getParameter("ex"));
+        
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);
 
