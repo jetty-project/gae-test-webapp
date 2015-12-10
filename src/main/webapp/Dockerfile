@@ -1,2 +1,2 @@
-FROM gcr.io/jetty9-work/appengine-mvn-opensource:async
+FROM gcr.io/jetty9-work/appengine-mvn-opensource:master
 ADD . /app
